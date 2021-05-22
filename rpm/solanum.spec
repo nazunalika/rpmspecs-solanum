@@ -144,7 +144,7 @@ systemd-tmpfiles --create %{name}.conf || :
 
 %files
 %defattr(-, root, root, -)
-%doc doc/logfiles.txt doc/credits-past.txt doc/features/* doc/oper-guide/* doc/technical/* doc/modes.txt doc/server-version-info.txt CREDITS LICENSE NEWS.md README.md
+#%doc doc/logfiles.txt doc/credits-past.txt doc/features/* doc/oper-guide/* doc/technical/* doc/modes.txt doc/server-version-info.txt CREDITS LICENSE NEWS.md README.md
 %dir %attr(0750,solanum,solanum) %{_var}/log/%{name}
 %dir %attr(0750,solanum,solanum) %{_sharedstatedir}/%{name}
 %dir %attr(0750,root,solanum) %{_sysconfdir}/%{name}
@@ -184,3 +184,4 @@ systemd-tmpfiles --create %{name}.conf || :
 %changelog
 * Fri May 22 2021 Louis Abel <tucklesepk@gmail.com> - 0.0.1-1.20210427git3ff5a12
 - Initial build of solanum
+- No docs for now
