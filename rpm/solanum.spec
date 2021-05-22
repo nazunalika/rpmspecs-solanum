@@ -49,12 +49,13 @@ It is meant to be used with an IRCv3-capable services implementation such as Ath
 Solanum is an ircd used on various networks either as itself, or as the basis of a customized IRC server implementation. A derivative of solanum, ircd-seven powers freenode, which is the largest IRC network in the world.
 
 %prep
-#%setup -q -n %{name}-%{name}-%{version}
+#%setup -q -n %{name}-%{version}
 git clone https://github.com/solanum-ircd/solanum.git
 cd solanum
 git checkout 3ff5a12e75662e9a642f2a4364797bd361eb0925
 
 %build
+cd %{_builddir}/%{name}
 /bin/sh ./autogen.sh
 %configure --prefix=%{_prefix} \
 	--with-program-prefix=solanum- \
@@ -73,10 +74,11 @@ git checkout 3ff5a12e75662e9a642f2a4364797bd361eb0925
 make %{?_smp_mflags} SOLANUM_VERSION="%{version}"
 
 # Extra readme
-cp %{SOURCE4} %{_builddir}/%{name}-%{name}-%{version}/README.info
+cp %{SOURCE4} %{_builddir}/%{name}/README.info
 
 %install
 rm -rf $RPM_BUILD_ROOT
+cd %{_builddir}/%{name}
 %make_install
 
 # Move the binaries to the libexec directory, since it's
