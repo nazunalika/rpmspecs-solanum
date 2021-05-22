@@ -107,7 +107,7 @@ cd %{_builddir}/%{name}
 
 # Removing development libraries
 rm -rf ${RPM_BUILD_ROOT}%{_libdir}/pkgconfig
-rm     ${RPM_BUILD_ROOT}%{_libdir}/*.la
+rm -f  ${RPM_BUILD_ROOT}%{_libdir}/*.la
 
 %pre
 %{_sbindir}/groupadd -r %{name} 2>/dev/null || :
