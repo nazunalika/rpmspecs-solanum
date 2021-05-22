@@ -1,0 +1,17 @@
+# Solanum IRC Daemon
+#
+
+[Unit]
+Description=Solanum Internet Relay Chat Server
+After=network.target
+Requires=network.target
+
+[Service]
+Type=simple
+User=solanum
+Group=solanum
+ExecStart=/usr/libexec/solanum/solanum -foreground
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
