@@ -18,7 +18,7 @@ URL:		https://solanum.chat/
 Source1:	%{name}.service
 Source2:	%{name}.tmpfiles
 Source3:	%{name}.conf
-Source4:	%{name}.README
+#Source4:	%{name}.README
 
 Provides:	%{name} = %{version}-%{release}
 
@@ -50,12 +50,18 @@ Solanum is an ircd used on various networks either as itself, or as the basis of
 
 %prep
 #%setup -q -n %{name}-%{version}
-git clone https://github.com/solanum-ircd/solanum.git
-cd solanum
+# No release tars
+rm -rf %{name}=%{commit} %{name} %{name}-version
+git clone https://github.com/solanum-ircd/solanum.git %{name}-%{version}
+cd %{name}-%{version}
 git checkout 3ff5a12e75662e9a642f2a4364797bd361eb0925
+# No release tars
 
 %build
-cd %{_builddir}/%{name}
+# No release tars
+cd %{name}-%{version}
+# No release tars
+
 /bin/sh ./autogen.sh
 %configure --prefix=%{_prefix} \
 	--with-program-prefix=solanum- \
@@ -74,11 +80,15 @@ cd %{_builddir}/%{name}
 make %{?_smp_mflags} SOLANUM_VERSION="%{version}"
 
 # Extra readme
-cp %{SOURCE4} %{_builddir}/%{name}/README.info
+#cp %{SOURCE4} %{_builddir}/%{name}/README.info
 
 %install
 rm -rf $RPM_BUILD_ROOT
-cd %{_builddir}/%{name}
+
+# No release tars
+cd %{name}-%{version}
+# No release tars
+
 %make_install
 
 # Move the binaries to the libexec directory, since it's
@@ -134,7 +144,7 @@ systemd-tmpfiles --create %{name}.conf || :
 
 %files
 %defattr(-, root, root, -)
-%doc README.info doc/logfiles.txt doc/credits-past.txt doc/features/* doc/oper-guide/* doc/technical/* doc/modes.txt doc/server-version-info.txt CREDITS LICENSE NEWS.md README.md
+%doc doc/logfiles.txt doc/credits-past.txt doc/features/* doc/oper-guide/* doc/technical/* doc/modes.txt doc/server-version-info.txt CREDITS LICENSE NEWS.md README.md
 %dir %attr(0750,solanum,solanum) %{_var}/log/%{name}
 %dir %attr(0750,solanum,solanum) %{_sharedstatedir}/%{name}
 %dir %attr(0750,root,solanum) %{_sysconfdir}/%{name}
