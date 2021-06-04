@@ -3,12 +3,12 @@
 %global major_version 0
 %global minor_version 0
 %global micro_version 1
-%global commit 3ff5a12e75662e9a642f2a4364797bd361eb0925
-%global commit_short 3ff5a12
+%global commit b29800911a4c6b840904af2b7f912b6f8ad2b88f
+%global commit_short b2980091
 
 Name:		solanum
 Version:	%{major_version}.%{minor_version}.%{micro_version}
-Release:	1.%{commit_short}%{?dist}
+Release:	2.%{commit_short}%{?dist}
 Summary:	A highly-scalable IRCv3-compliant IRC daemon
 
 Group:		Applications/Communications
@@ -51,15 +51,14 @@ Solanum is an ircd used on various networks either as itself, or as the basis of
 %prep
 #%setup -q -n %{name}-%{version}
 # No release tars
-rm -rf %{name}=%{commit} %{name} %{name}-version
+rm -rf %{name}-%{commit} %{name} %{name}-%{version}
 git clone https://github.com/solanum-ircd/solanum.git %{name}-%{version}
-cd %{name}-%{version}
-git checkout 3ff5a12e75662e9a642f2a4364797bd361eb0925
 # No release tars
 
 %build
 # No release tars
 cd %{name}-%{version}
+git checkout 3ff5a12e75662e9a642f2a4364797bd361eb0925
 # No release tars
 
 /bin/sh ./autogen.sh
@@ -182,6 +181,9 @@ systemd-tmpfiles --create %{name}.conf || :
 #%exclude %{_libdir}/pkgconfig/libratbox.pc
 
 %changelog
+* Fri Jun 04 2021 Louis Abel <tucklesepk@gmail.com> - 0.0.1-2.20210604gitb2980091
+- Update to latest commit
+
 * Fri May 22 2021 Louis Abel <tucklesepk@gmail.com> - 0.0.1-1.20210427git3ff5a12
 - Initial build of solanum
 - No docs for now
