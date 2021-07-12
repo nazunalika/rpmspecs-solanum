@@ -3,8 +3,8 @@
 %global major_version 0
 %global minor_version 0
 %global micro_version 1
-%global commit b29800911a4c6b840904af2b7f912b6f8ad2b88f
-%global commit_short b2980091
+%global commit       1c78029cd4a17c75b0cf8197736493860c46bfd1
+%global commit_short 1c78029c
 
 Name:		solanum
 Version:	%{major_version}.%{minor_version}.%{micro_version}
@@ -58,7 +58,7 @@ git clone https://github.com/solanum-ircd/solanum.git %{name}-%{version}
 %build
 # No release tars
 cd %{name}-%{version}
-git checkout 3ff5a12e75662e9a642f2a4364797bd361eb0925
+git checkout %{commit}
 # No release tars
 
 /bin/sh ./autogen.sh
@@ -170,7 +170,7 @@ systemd-tmpfiles --create %{name}.conf || :
 %config(noreplace) %attr(0640,solanum,solanum) %{_sysconfdir}/%{name}/ircd.motd
 
 %attr(0640,solanum,solanum) %{_sysconfdir}/%{name}/*.example
-%attr(0640,solanum,solanum) %{_sysconfdir}/%{name}/reference.conf
+%config(noreplace) %attr(0640,solanum,solanum) %{_sysconfdir}/%{name}/reference.conf
 
 #%{_mandir}/man8/solanum-ircd.8*
 %{_tmpfilesdir}/%{name}.conf
@@ -181,6 +181,9 @@ systemd-tmpfiles --create %{name}.conf || :
 #%exclude %{_libdir}/pkgconfig/libratbox.pc
 
 %changelog
+* Sun Jul 11 2021 Louis Abel <tucklesepk@gmail.com> - 0.0.1-2.20210711git1c78029c
+- Update to latest commit
+
 * Fri Jun 04 2021 Louis Abel <tucklesepk@gmail.com> - 0.0.1-2.20210604gitb2980091
 - Update to latest commit
 
