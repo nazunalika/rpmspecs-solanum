@@ -42,11 +42,14 @@ Requires(pre):		shadow-utils
 Requires:	openssl
 
 %description
-Solanum is an IRCv3 server designed to be highly scalable. It implements IRCv3.1 and some parts of IRCv3.2.
+Solanum is an IRCv3 server designed to be highly scalable. It implements IRCv3.1
+and some parts of IRCv3.2.
 
-It is meant to be used with an IRCv3-capable services implementation such as Atheme or Anope.
+It is meant to be used with an IRCv3-capable services implementation such as
+Atheme or Anope.
 
-Solanum is an ircd used on various networks either as itself, or as the basis of a customized IRC server implementation. A derivative of solanum, ircd-seven powers freenode, which is the largest IRC network in the world.
+Solanum is an ircd used on various networks either as itself, or as the basis of
+a customized IRC server implementation.
 
 %prep
 #%setup -q -n %{name}-%{version}
@@ -183,6 +186,7 @@ systemd-tmpfiles --create %{name}.conf || :
 %changelog
 * Thu Aug 19 2021 Louis Abel <tucklesepk@gmail.com> - 0.0.1-4.20210809gitb6b40dda
 - Update to latest commit
+- Fix description
 
 * Mon Aug 09 2021 Louis Abel <tucklesepk@gmail.com> - 0.0.1-3.20210809git0fd3040c
 - Update to latest commit
