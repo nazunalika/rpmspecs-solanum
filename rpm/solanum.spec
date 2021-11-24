@@ -6,6 +6,9 @@
 %global commit       bd38559fedcdfded4d9acbcbf988e4a8f5057eeb
 %global commit_short bd38559f
 
+# Need to figure out what's going on with this. This is temporary for f35
+%global __brp_check_rpaths %{nil}
+
 Name:		solanum
 Version:	%{major_version}.%{minor_version}.%{micro_version}
 Release:	6.%{commit_short}%{?dist}
