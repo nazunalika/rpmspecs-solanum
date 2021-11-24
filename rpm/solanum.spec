@@ -3,12 +3,12 @@
 %global major_version 0
 %global minor_version 0
 %global micro_version 1
-%global commit       c57762ed504097b5dc81191d19a9d70ce7774df1
-%global commit_short c57762ed
+%global commit       bd38559fedcdfded4d9acbcbf988e4a8f5057eeb
+%global commit_short bd38559f
 
 Name:		solanum
 Version:	%{major_version}.%{minor_version}.%{micro_version}
-Release:	5.%{commit_short}%{?dist}
+Release:	6.%{commit_short}%{?dist}
 Summary:	A highly-scalable IRCv3-compliant IRC daemon
 
 Group:		Applications/Communications
@@ -184,6 +184,9 @@ systemd-tmpfiles --create %{name}.conf || :
 #%exclude %{_libdir}/pkgconfig/libratbox.pc
 
 %changelog
+* Tue Nov 23 2021 Louis Abel <tucklesepk@gmail.com> - 0.0.1-6.20211123gitbd38559f
+- Update to latest commit
+
 * Wed Oct 06 2021 Louis Abel <tucklesepk@gmail.com> - 0.0.1-5.20210809gitc57762ed
 - Update to latest commit
 
