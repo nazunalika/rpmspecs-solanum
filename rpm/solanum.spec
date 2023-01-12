@@ -3,15 +3,16 @@
 %global major_version 0
 %global minor_version 0
 %global micro_version 1
-%global commit       01fb744c405792dd3f0859a53f74cd4cb5fd166f
-%global commit_short 01fb744c
+%global commit       e02cc991bb9a7b9aac65b70d167002cea12bad46
+%global commit_short e02cc991
+%global date         20230111
 
 # Need to figure out what's going on with this. This is temporary for f35
 %global __brp_check_rpaths %{nil}
 
 Name:		solanum
 Version:	%{major_version}.%{minor_version}.%{micro_version}
-Release:	10.%{commit_short}%{?dist}
+Release:	11.%{date}.%{commit_short}%{?dist}
 Summary:	A highly-scalable IRCv3-compliant IRC daemon
 
 Group:		Applications/Communications
@@ -187,6 +188,9 @@ systemd-tmpfiles --create %{name}.conf || :
 #%exclude %{_libdir}/pkgconfig/libratbox.pc
 
 %changelog
+* Wed Jan 11 2023 Louis Abel <tucklesepk@gmail.com> - 0.0.1-11.20230111gite02cc991
+- Update to latest commit
+
 * Fri Sep 16 2022 Louis Abel <tucklesepk@gmail.com> - 0.0.1-10.20220916git01fb744c
 - Update to latest commit
 
