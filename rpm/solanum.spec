@@ -3,9 +3,9 @@
 %global major_version 0
 %global minor_version 0
 %global micro_version 1
-%global commit       d1c028f2122f9da00203f415d76a990d7ef8843e
-%global commit_short d1c028f2
-%global date         20230625
+%global commit       0ca18d072a7d1dfcfbdff6dcf4f2788f52935a03
+%global commit_short 0ca18d07
+%global date         20230724
 %global relnum       12
 
 # Need to figure out what's going on with this. This is temporary for f35
@@ -189,43 +189,6 @@ systemd-tmpfiles --create %{name}.conf || :
 #%exclude %{_libdir}/pkgconfig/libratbox.pc
 
 %changelog
-* Sun Jun 25 2023 Louis Abel <tucklesepk@gmail.com> - 0.0.1-12.20230625gite02cc991
+* Mon Jul 24 2023 Louis Abel <tucklesepk@gmail.com> - 0.0.1-12.20230724.0ca18d07
 - Update to latest commit
-
-* Wed Jan 11 2023 Louis Abel <tucklesepk@gmail.com> - 0.0.1-11.20230111gite02cc991
-- Update to latest commit
-
-* Fri Sep 16 2022 Louis Abel <tucklesepk@gmail.com> - 0.0.1-10.20220916git01fb744c
-- Update to latest commit
-
-* Tue Jul 12 2022 Louis Abel <tucklesepk@gmail.com> - 0.0.1-9.20220711git860187d3
-- Update to latest commit
-
-* Thu May 19 2022 Louis Abel <tucklesepk@gmail.com> - 0.0.1-8.20220519git48a06ae3
-- Update to latest commit
-
-* Sun Jan 30 2022 Louis Abel <tucklesepk@gmail.com> - 0.0.1-7.20220130git18ac52f0
-- Update to latest commit
-
-* Tue Nov 23 2021 Louis Abel <tucklesepk@gmail.com> - 0.0.1-6.20211123gitbd38559f
-- Update to latest commit
-
-* Wed Oct 06 2021 Louis Abel <tucklesepk@gmail.com> - 0.0.1-5.20210809gitc57762ed
-- Update to latest commit
-
-* Thu Aug 19 2021 Louis Abel <tucklesepk@gmail.com> - 0.0.1-4.20210809gitb6b40dda
-- Update to latest commit
-- Fix description
-
-* Mon Aug 09 2021 Louis Abel <tucklesepk@gmail.com> - 0.0.1-3.20210809git0fd3040c
-- Update to latest commit
-
-* Sun Jul 11 2021 Louis Abel <tucklesepk@gmail.com> - 0.0.1-2.20210711git1c78029c
-- Update to latest commit
-
-* Fri Jun 04 2021 Louis Abel <tucklesepk@gmail.com> - 0.0.1-2.20210604gitb2980091
-- Update to latest commit
-
-* Fri May 22 2021 Louis Abel <tucklesepk@gmail.com> - 0.0.1-1.20210427git3ff5a12
-- Initial build of solanum
-- No docs for now
+- Clear changelog
