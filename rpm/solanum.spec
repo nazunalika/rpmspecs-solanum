@@ -3,9 +3,9 @@
 %global major_version 0
 %global minor_version 0
 %global micro_version 1
-%global commit       1ccc642277721bfb8b7108c2c05edf7c921acbfb
-%global commit_short 1ccc6422
-%global date         20240127
+%global commit       dd3355732b392f8be9f326feb1849b2f46c9a1fc
+%global commit_short dd335573
+%global date         20240321
 %global relnum       14
 
 # Need to figure out what's going on with this. This is temporary for f35
@@ -189,6 +189,9 @@ systemd-tmpfiles --create %{name}.conf || :
 #%exclude %{_libdir}/pkgconfig/libratbox.pc
 
 %changelog
+* Thu Mar 21 2024 Louis Abel <tucklesepk@gmail.com> - 0.0.1-14.20240321.dd335573
+- Update to latest commit
+
 * Sat Jan 27 2024 Louis Abel <tucklesepk@gmail.com> - 0.0.1-14.20240127.1ccc6422
 - Update to latest commit
 
