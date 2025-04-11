@@ -20,10 +20,10 @@ Group:		Applications/Communications
 License:	GPLv2
 URL:		https://solanum.chat/
 #Source0:	https://github.com/%{name}-ircd/%{name}/archive/%{name}-%{version}.tar.gz
-Source1:	%{name}.service
-Source2:	%{name}.tmpfiles
-Source3:	%{name}.conf
-#Source4:	%{name}.README
+Source0:	%{name}.service
+Source1:	%{name}.tmpfiles
+Source2:	%{name}.conf
+#Source3:	%{name}.README
 
 Provides:	%{name} = %{version}-%{release}
 
@@ -65,7 +65,7 @@ git clone https://github.com/solanum-ircd/solanum.git %{name}-%{version}
 
 %build
 # No release tars
-%if 0%{?rhel} <= "9"
+%if 0%{?rhel} <= 9
 cd %{name}-%{version}
 %endif
 git checkout %{commit}
@@ -108,16 +108,16 @@ cd %{name}-%{version}
 
 # Install service
 %{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_unitdir}
-%{__install} -m 0644 %{SOURCE1} \
+%{__install} -m 0644 %{SOURCE0} \
         ${RPM_BUILD_ROOT}%{_unitdir}/%{name}.service
 
 # Install tmpfiles
 %{__install} -d -m 0755 ${RPM_BUILD_ROOT}%{_tmpfilesdir}
-%{__install} -m 0644 %{SOURCE2} \
+%{__install} -m 0644 %{SOURCE1} \
 	${RPM_BUILD_ROOT}%{_tmpfilesdir}/%{name}.conf
 
 # Install ircd.conf
-%{__install} -m 0660 %{SOURCE3} \
+%{__install} -m 0660 %{SOURCE2} \
 	${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/ircd.conf
 
 # Create log and shared state
