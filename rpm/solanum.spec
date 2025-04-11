@@ -65,7 +65,9 @@ git clone https://github.com/solanum-ircd/solanum.git %{name}-%{version}
 
 %build
 # No release tars
+%if 0%{?rhel} <= "9"
 cd %{name}-%{version}
+%endif
 git checkout %{commit}
 # No release tars
 
