@@ -3,10 +3,10 @@
 %global major_version 0
 %global minor_version 0
 %global micro_version 1
-%global commit       1669c6406cea5092f5ac25634136341a92c6373b
-%global commit_short 1669c640
-%global date         20250410
-%global relnum       15
+%global commit       70d491d8a4ad9fa02ce5394d9007baf5f23ca61c
+%global commit_short 70d491d8
+%global date         20250708
+%global relnum       16
 
 # Need to figure out what's going on with this. This is temporary for f35
 %global __brp_check_rpaths %{nil}
@@ -191,6 +191,9 @@ systemd-tmpfiles --create %{name}.conf || :
 #%exclude %{_libdir}/pkgconfig/libratbox.pc
 
 %changelog
+* Tue Jul 08 2025 Louis Abel <tucklesepk@gmail.com> - 0.0.1-16.20250708.70d491d8
+- Update to latest commit
+
 * Thu Apr 10 2025 Louis Abel <tucklesepk@gmail.com> - 0.0.1-15.20250410.1669c640
 - Update to latest commit
 
